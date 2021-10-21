@@ -6,11 +6,6 @@ Ext.define('App.view.main.List', {
     xtype: 'mainlist',
     id: 'dataList',
     frame: true,
-    actions: {
-        seeMore: {
-            iconCls: 'button'
-        }
-    },
     requires: [
         'App.store.Personnel', 'Ext.grid.column.Action', 'Ext.button.Button'
     ],

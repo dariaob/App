@@ -4,15 +4,10 @@
 Ext.define('App.view.main.Grid', {
     extend: 'Ext.grid.Panel',
     xtype: 'userlist',
-    id: 'usrList',
+    StoreId: 'usrList',
     frame: true,
-    actions: {
-        seeMore: {
-            iconCls: 'button'
-        }
-    },
     requires: [
-        'App.store.LizaPersonnel', 'Ext.grid.column.Action',  'Ext.button.Button'
+        'App.store.Personnel', 'Ext.grid.column.Action'
     ],
 
     title: 'User info',
@@ -25,13 +20,16 @@ Ext.define('App.view.main.Grid', {
         {text: 'id', dataIndex: 'id'},
         { text: 'Name',  dataIndex: 'name', flex: 1 },
         { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: "phone", flex: 1 },
-        { text: 'Country', dataIndex: 'country', flex: 1 },
-        { text: 'Company', dataIndex: 'company', flex: 1 }
-],
+        {
+            text: 'Phone', dataIndex: 'phone', flex: 1
+        },
+        {
+            text: 'Country', dataIndex: 'country', flex: 1
+        },
+        {
+            text: 'Company', dataIndex: 'company', flex: 1
+        }
+    ],
 
 
-    listeners: {
-        select: 'onItemSelected'
-    }
 });
