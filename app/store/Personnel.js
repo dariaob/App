@@ -3,7 +3,7 @@
 * */
 Ext.define('App.store.Personnel', {
     extend: 'Ext.data.Store',
-    id: 'personnel',
+    storeId: 'personnel',
     alias: 'store.personnel',
 
     model: 'App.model.Personnel',

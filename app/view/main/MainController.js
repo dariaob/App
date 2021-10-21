@@ -4,7 +4,8 @@
  */
 Ext.define('App.view.main.MainController', {
     extend: 'Ext.app.ViewController',
-    requires: ['App.view.main.Edit', 'App.model.Personnel', 'App.store.Personnel'],
+    requires: ['App.view.main.Edit', 'App.model.Personnel', 'App.store.Personnel', 'App.store.LizaPersonnel', 'App.model.UserPersonnel',
+        'Ext.layout.container.HBox', 'Ext.grid.property.*'],
 
     alias: 'controller.main',
 
@@ -25,11 +26,13 @@ Ext.define('App.view.main.MainController', {
 
 
     onDelete: function () {
-        //Получаем данные из стор
-        var store = Ext.getStore('personnel')
+
         //находим выделенную запись по id
         var id = Ext.getCmp('upd_id').getValue();
-        var record = store.getAt(parseInt(id));
+
+        //Получаем данные из памяти
+        var store = Ext.getStore('personnel')
+        var record = store.getAt(id);
 
         Ext.MessageBox.confirm('Confirm','Are you sure?',function(btn){
             if (btn === 'yes'){
@@ -81,6 +84,21 @@ Ext.define('App.view.main.MainController', {
         Ext.Msg.alert('Success', 'New user has been added.', Ext.emptyFn);
 
         console.log('store: ', store);
+    },
+
+    onApprove: function () {
+
+            var tabs = this.getView();
+            var tab = tabs.add(Ext.create({
+                xtype: 'container',
+                layout: 'fit',
+                margin: '0 0 10 0',
+                title: "User's info",
+                items: [{
+                    xtype: 'userlist'
+                }]
+            }))
+            tabs.setActiveTab(tab)
     }
 
 });

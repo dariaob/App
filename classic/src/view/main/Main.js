@@ -74,14 +74,20 @@ Ext.define('App.view.main.Main', {
         }
     },
 
-    items: [{
+    items: [
+        {
         title: 'Home',
         iconCls: 'fa-home',
         // первая страница с гридом
         items: [{
-            xtype: 'mainlist'
+            xtype: 'tabpanel',
+            layout: 'fit',
+            items: [{
+                xtype: 'mainlist'
+            }]
         }]
-    }, {
+    },
+        {
         //вторая страница с формой
         title: 'Users',
         iconCls: 'fa-user',
@@ -125,12 +131,13 @@ Ext.define('App.view.main.Main', {
             }],
         }]
         // }, {
-    //     title: 'Groups',
-    //     iconCls: 'fa-users',
-    //     bind: {
-    //         html: '{loremIpsum}'
-    //     }
-    // }, {
+        // title: 'Groups',
+        // iconCls: 'fa-users',
+        // items: [{
+        //     xtype: 'infolist'
+        // }],
+    },
+     {
     //     title: 'Settings',
     //     iconCls: 'fa-cog',
     //     bind: {
