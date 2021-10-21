@@ -86,6 +86,7 @@ Ext.define('App.view.main.MainController', {
         console.log('store: ', store);
     },
 
+    //Функция для открытия новой карточки с пользователем
     onApprove: function () {
 
             var tabs = this.getView();
